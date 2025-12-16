@@ -1,0 +1,37 @@
+{
+  "name": "scalar-design-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.3",
+    "@storybook/addon-a11y": "^10.1.9",
+    "@storybook/addon-docs": "^10.1.9",
+    "@storybook/addon-onboarding": "^10.1.9",
+    "@storybook/addon-vitest": "^10.1.9",
+    "@storybook/react-vite": "^10.1.9",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/browser-playwright": "^4.0.16",
+    "@vitest/coverage-v8": "^4.0.16",
+    "playwright": "^1.57.0",
+    "storybook": "^10.1.9",
+    "storybook-addon-designs": "^6.3.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}
