@@ -2,7 +2,7 @@ import React from 'react';
 import { getColorPrimitive, getSemanticColor, typographyPrimitives } from '../tokens';
 import type { ThemeMode } from '../tokens/types';
 
-type AvatarSize = 'sm' | 'md' | 'lg';
+type AvatarSize = 'sm' | 'md' | 'lg'; 
 
 export interface AvatarProps {
   /** User initials to display (max 2 characters recommended) */
