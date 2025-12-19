@@ -1,0 +1,103 @@
+/**
+ * SidebarIcon Component Styles
+ * 
+ * CSS styles for the SidebarIcon component following the Scalar Design System.
+ * Uses design tokens for colors, spacing, and sizing.
+ * 
+ * Sizing from Figma:
+ * - Container: padding 8px, border-radius 4px
+ * - Icon: 16x16px
+ * 
+ * States:
+ * - Default style + Default state: transparent background
+ * - Active style + Default state: background/page (#E5E5E5)
+ * - Default style + Hover state: white @ 50% opacity
+ * - Default style + Pressed state: white @ 30% opacity
+ */
+
+.scalar-sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px; /* var(--s) from sizing tokens */
+  border-radius: 4px; /* radius.sm from spacing tokens */
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+/* Style variants */
+.scalar-sidebar-icon--default {
+  background-color: transparent;
+}
+
+.scalar-sidebar-icon--active {
+  background-color: #E5E5E5; /* background/page - neutral/100 */
+}
+
+/* State variants for default style */
+.scalar-sidebar-icon--default.scalar-sidebar-icon--state-hover {
+  background-color: rgba(255, 255, 255, 0.5); /* neutral/white @ 50% */
+}
+
+.scalar-sidebar-icon--default.scalar-sidebar-icon--state-pressed {
+  background-color: rgba(255, 255, 255, 0.3); /* neutral/white @ 30% */
+}
+
+/* Interactive states (CSS hover/active) */
+.scalar-sidebar-icon--default:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.scalar-sidebar-icon--default:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Focus visible for accessibility */
+.scalar-sidebar-icon:focus-visible {
+  outline: 2px solid #037DE8; /* brand/500 */
+  outline-offset: 2px;
+}
+
+/* Icon wrapper */
+.scalar-sidebar-icon__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Icon colors based on style */
+.scalar-sidebar-icon--default .scalar-sidebar-icon__icon {
+  color: #999999; /* neutral/400 */
+}
+
+.scalar-sidebar-icon--active .scalar-sidebar-icon__icon {
+  color: #037DE8; /* brand/500 */
+}
+
+/* Icon SVG styling */
+.scalar-sidebar-icon__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark theme overrides */
+.scalar-sidebar-icon--dark.scalar-sidebar-icon--active {
+  background-color: #1A1A1A; /* neutral/900 - background/page dark */
+}
+
+.scalar-sidebar-icon--dark.scalar-sidebar-icon--default .scalar-sidebar-icon__icon {
+  color: #999999; /* neutral/400 */
+}
+
+.scalar-sidebar-icon--dark.scalar-sidebar-icon--active .scalar-sidebar-icon__icon {
+  color: #3597ED; /* brand/400 */
+}
+

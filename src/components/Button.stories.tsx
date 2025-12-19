@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
-import { mdiCheck, mdiChevronDown, mdiArrowRight, mdiDelete, mdiAlert } from '@mdi/js';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -34,11 +33,11 @@ const meta: Meta<typeof Button> = {
     },
     iconLeft: {
       control: 'text',
-      description: 'Icon path from @mdi/js (e.g., mdiCheck, mdiChevronDown)',
+      description: 'Material Design icon name (e.g., "Check", "KeyboardArrowDown", "ArrowForward")',
     },
     iconRight: {
       control: 'text',
-      description: 'Icon path from @mdi/js (e.g., mdiCheck, mdiChevronDown)',
+      description: 'Material Design icon name (e.g., "Check", "KeyboardArrowDown", "ArrowForward")',
     },
   },
 };
@@ -65,7 +64,7 @@ export const PrimaryMainWithIconLeft: Story = {
     size: 'md',
     type: 'main',
     disabled: false,
-    iconLeft: mdiCheck,
+    iconLeft: 'Check',
   },
 };
 
@@ -76,7 +75,7 @@ export const PrimaryMainWithIconRight: Story = {
     size: 'md',
     type: 'main',
     disabled: false,
-    iconRight: mdiChevronDown,
+    iconRight: 'KeyboardArrowDown',
   },
 };
 
@@ -87,8 +86,8 @@ export const PrimaryMainWithIcons: Story = {
     size: 'md',
     type: 'main',
     disabled: false,
-    iconLeft: mdiCheck,
-    iconRight: mdiChevronDown,
+    iconLeft: 'Check',
+    iconRight: 'KeyboardArrowDown',
   },
 };
 
@@ -150,7 +149,7 @@ export const PrimaryPositiveWithIcon: Story = {
     size: 'md',
     type: 'positive',
     disabled: false,
-    iconLeft: mdiCheck,
+    iconLeft: 'Check',
   },
 };
 
@@ -202,7 +201,7 @@ export const PrimaryWarningWithIcon: Story = {
     size: 'md',
     type: 'warning',
     disabled: false,
-    iconLeft: mdiAlert,
+    iconLeft: 'Warning',
   },
 };
 
@@ -254,7 +253,7 @@ export const PrimaryNegativeWithIcon: Story = {
     size: 'md',
     type: 'negative',
     disabled: false,
-    iconLeft: mdiDelete,
+    iconLeft: 'Delete',
   },
 };
 
@@ -306,7 +305,7 @@ export const SecondaryMainWithIcon: Story = {
     size: 'md',
     type: 'main',
     disabled: false,
-    iconRight: mdiArrowRight,
+    iconRight: 'ArrowForward',
   },
 };
 
@@ -401,7 +400,7 @@ export const TertiaryMainWithIcon: Story = {
     size: 'md',
     type: 'main',
     disabled: false,
-    iconRight: mdiArrowRight,
+    iconRight: 'ArrowForward',
   },
 };
 
@@ -463,7 +462,7 @@ export const SmallWithIcon: Story = {
     size: 'sm',
     type: 'main',
     disabled: false,
-    iconRight: mdiChevronDown,
+    iconRight: 'KeyboardArrowDown',
   },
 };
 
@@ -494,7 +493,7 @@ export const LargeWithIcon: Story = {
     size: 'lg',
     type: 'main',
     disabled: false,
-    iconRight: mdiChevronDown,
+    iconRight: 'KeyboardArrowDown',
   },
 };
 
@@ -519,13 +518,13 @@ export const AllSizes: Story = {
 export const AllSizesWithIcons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <Button variant="primary" size="sm" type="main" iconRight={mdiChevronDown}>
+      <Button variant="primary" size="sm" type="main" iconRight="KeyboardArrowDown">
         Small
       </Button>
-      <Button variant="primary" size="md" type="main" iconRight={mdiChevronDown}>
+      <Button variant="primary" size="md" type="main" iconRight="KeyboardArrowDown">
         Medium
       </Button>
-      <Button variant="primary" size="lg" type="main" iconRight={mdiChevronDown}>
+      <Button variant="primary" size="lg" type="main" iconRight="KeyboardArrowDown">
         Large
       </Button>
     </div>
@@ -553,13 +552,13 @@ export const AllVariants: Story = {
 export const AllVariantsWithIcons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <Button variant="primary" size="md" type="main" iconRight={mdiChevronDown}>
+      <Button variant="primary" size="md" type="main" iconRight="KeyboardArrowDown">
         Primary
       </Button>
-      <Button variant="secondary" size="md" type="main" iconRight={mdiChevronDown}>
+      <Button variant="secondary" size="md" type="main" iconRight="KeyboardArrowDown">
         Secondary
       </Button>
-      <Button variant="tertiary" size="md" type="main" iconRight={mdiChevronDown}>
+      <Button variant="tertiary" size="md" type="main" iconRight="KeyboardArrowDown">
         Tertiary
       </Button>
     </div>
@@ -591,21 +590,21 @@ export const IconExamples: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <Button variant="primary" size="md" type="main" iconLeft={mdiCheck}>
+        <Button variant="primary" size="md" type="main" iconLeft="Check">
           With Left Icon
         </Button>
-        <Button variant="primary" size="md" type="main" iconRight={mdiChevronDown}>
+        <Button variant="primary" size="md" type="main" iconRight="KeyboardArrowDown">
           With Right Icon
         </Button>
-        <Button variant="primary" size="md" type="main" iconLeft={mdiCheck} iconRight={mdiChevronDown}>
+        <Button variant="primary" size="md" type="main" iconLeft="Check" iconRight="KeyboardArrowDown">
           With Both Icons
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <Button variant="secondary" size="md" type="main" iconLeft={mdiCheck}>
+        <Button variant="secondary" size="md" type="main" iconLeft="Check">
           Secondary with Icon
         </Button>
-        <Button variant="tertiary" size="md" type="main" iconRight={mdiArrowRight}>
+        <Button variant="tertiary" size="md" type="main" iconRight="ArrowForward">
           Tertiary with Icon
         </Button>
       </div>
