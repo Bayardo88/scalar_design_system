@@ -17,8 +17,8 @@ export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonE
   children: React.ReactNode;
   disabled?: boolean;
   themeMode?: ThemeMode;
-  iconLeft?: string; // Icon path from @mdi/js
-  iconRight?: string; // Icon path from @mdi/js
+  iconLeft?: string; // Material Design icon name (e.g., "Check", "KeyboardArrowDown")
+  iconRight?: string; // Material Design icon name (e.g., "Check", "KeyboardArrowDown")
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -333,7 +333,7 @@ export const Button: React.FC<ButtonProps> = ({
         {iconLeft && (
           <AppIcon
             name={iconLeft}
-            size={iconSize}
+            size={size === 'sm' ? 'small' : size === 'md' ? 'medium' : 'large'}
             color={colors.iconColor}
             aria-hidden="true"
           />
@@ -342,7 +342,7 @@ export const Button: React.FC<ButtonProps> = ({
         {iconRight && (
           <AppIcon
             name={iconRight}
-            size={iconSize}
+            size={size === 'sm' ? 'small' : size === 'md' ? 'medium' : 'large'}
             color={colors.iconColor}
             aria-hidden="true"
           />
