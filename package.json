@@ -12,6 +12,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@mui/icons-material": "^7.3.6",
@@ -26,6 +28,7 @@
     "@storybook/addon-onboarding": "^10.1.9",
     "@storybook/addon-vitest": "^10.1.9",
     "@storybook/react-vite": "^10.1.9",
+    "@types/node": "^25.0.6",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitest/browser-playwright": "^4.0.16",
