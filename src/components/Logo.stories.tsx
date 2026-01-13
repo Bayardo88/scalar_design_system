@@ -7,17 +7,17 @@ const meta: Meta<typeof Logo> = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=70-12074&m=dev',
+      url: 'https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=114-2335&m=dev',
     },
   },
   tags: ['autodocs'],
   argTypes: {
     size: {
       control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      description: 'Size variant of the logo',
+      options: ['Small', 'Mid', 'Large', 'XL'],
+      description: 'Size variant of the logo - matches Figma design sizes',
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: 'Small' },
       },
     },
     alt: {
@@ -31,6 +31,10 @@ const meta: Meta<typeof Logo> = {
       control: 'text',
       description: 'Optional custom class name',
     },
+    color: {
+      control: 'color',
+      description: 'Custom color for the logo background circle (defaults to brand/500)',
+    },
   },
 };
 
@@ -39,91 +43,78 @@ export default meta;
 type Story = StoryObj<typeof Logo>;
 
 /**
- * Default logo at medium size (42x42px) - matches Figma design
+ * Default logo at Small size (16x16px) - matches Figma design
  */
 export const Default: Story = {
   args: {
-    size: 'md',
+    size: 'Small',
   },
 };
 
 /**
- * Extra small logo (24x24px)
- */
-export const ExtraSmall: Story = {
-  args: {
-    size: 'xs',
-  },
-};
-
-/**
- * Small logo (32x32px)
+ * Small logo (16x16px) - matches Figma design
  */
 export const Small: Story = {
   args: {
-    size: 'sm',
+    size: 'Small',
   },
 };
 
 /**
- * Medium logo (42x42px) - Default size from Figma
+ * Mid logo (24x24px) - matches Figma design
  */
-export const Medium: Story = {
+export const Mid: Story = {
   args: {
-    size: 'md',
+    size: 'Mid',
   },
 };
 
 /**
- * Large logo (56x56px)
+ * Large logo (32x32px) - matches Figma design
  */
 export const Large: Story = {
   args: {
-    size: 'lg',
+    size: 'Large',
   },
 };
 
 /**
- * Extra large logo (72x72px)
+ * XL logo (40x40px) - matches Figma design
  */
-export const ExtraLarge: Story = {
+export const XL: Story = {
   args: {
-    size: 'xl',
+    size: 'XL',
   },
 };
 
 /**
- * All size variants displayed together for comparison
+ * All size variants displayed together for comparison - matches Figma design
  */
 export const AllSizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
       <div style={{ textAlign: 'center' }}>
-        <Logo size="xs" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>XS (24px)</p>
+        <Logo size="Small" />
+        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>Small (16px)</p>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Logo size="sm" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>SM (32px)</p>
+        <Logo size="Mid" />
+        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>Mid (24px)</p>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Logo size="md" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>MD (42px)</p>
+        <Logo size="Large" />
+        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>Large (32px)</p>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Logo size="lg" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>LG (56px)</p>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <Logo size="xl" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>XL (72px)</p>
+        <Logo size="XL" />
+        <p style={{ marginTop: '8px', fontSize: '12px', color: '#666' }}>XL (40px)</p>
       </div>
     </div>
   ),
 };
 
 /**
- * Logo on dark background
+ * Logo on dark background - matches Figma design presentation
  */
 export const OnDarkBackground: Story = {
   render: () => (
@@ -135,15 +126,25 @@ export const OnDarkBackground: Story = {
         padding: '32px',
         backgroundColor: '#1A1A1A',
         borderRadius: '8px',
+        flexWrap: 'wrap',
       }}
     >
-      <Logo size="xs" />
-      <Logo size="sm" />
-      <Logo size="md" />
-      <Logo size="lg" />
-      <Logo size="xl" />
+      <Logo size="Small" />
+      <Logo size="Mid" />
+      <Logo size="Large" />
+      <Logo size="XL" />
     </div>
   ),
+};
+
+/**
+ * Logo with custom background color
+ */
+export const CustomColor: Story = {
+  args: {
+    size: 'Mid',
+    color: '#6E2FFF', // Purple from design tokens
+  },
 };
 
 /**
@@ -151,7 +152,7 @@ export const OnDarkBackground: Story = {
  */
 export const WithCustomClass: Story = {
   args: {
-    size: 'md',
+    size: 'Mid',
     className: 'custom-logo-class',
   },
 };
