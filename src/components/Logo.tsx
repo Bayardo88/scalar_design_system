@@ -1,6 +1,8 @@
 import React from 'react';
 import { getColorPrimitive } from '../tokens';
-import logoSvg from '../Size=XL.svg';
+
+// Default SVG logo as fallback (inline SVG)
+const defaultLogoSvg = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0iIzAzN0RFOCI+CjxwYXRoIGQ9Ik0yMCAwQzMxLjA0NTcgMCA0MCA4Ljk1NDMgNDAgMjBDNDAgMzEuMDQ1NyAzMS4wNDU3IDQwIDIwIDQwQzguOTU0MyA0MCAwIDMxLjA0NTcgMCAyMEMwIDguOTU0MzEgOC45NTQzMSAwIDIwIDBaIi8+CjxwYXRoIGQ9Ik0xOC4wOTQ3IDEzLjMzNFYxOS4wNDc5SDIyLjg1NzRWMjYuNjY3SDE5LjA0NzlWMzIuMzgwOUgyNy42MTkxVjEzLjMzNEgxOC4wOTQ3Wk0xMi4zODA5IDYuNjY2OTlWMjUuNzE0OEgyMS45MDQzVjIwSDE3LjE0MjZWMTIuMzgwOUgyMS45MDQzVjYuNjY2OTlIMTIuMzgwOVoiLz4KPC9nPgo8L3N2Zz4K';
 
 type LogoSize = 'Small' | 'Mid' | 'Large' | 'XL';
 
@@ -51,7 +53,7 @@ export const Logo: React.FC<LogoProps> = ({
   };
 
   const pixelSize = sizeMap[size];
-  const svgPath = logoSvgPath || logoSvg;
+  const svgPath = logoSvgPath || defaultLogoSvg;
 
   const containerStyles: React.CSSProperties = {
     position: 'relative',
