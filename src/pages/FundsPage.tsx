@@ -20,6 +20,11 @@ import { LeadingHeaderSelector } from '../components/LeadingHeaderSelector';
  * a complete application page.
  * 
  * Uses design tokens for all styling (colors, typography, spacing, sizing).
+ * 
+ * For detailed information about Fund Intelligence Metrics and field definitions,
+ * refer to the KNOWLEDGE_BASE.md file in the project root.
+ * 
+ * @see {@link https://github.com/Bayardo88/scalar_design_system/blob/main/KNOWLEDGE_BASE.md KNOWLEDGE_BASE.md}
  */
 export const FundsPage: React.FC = () => {
   // Design tokens
