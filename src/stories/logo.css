@@ -1,0 +1,52 @@
+/**
+ * Logo Component Styles
+ * 
+ * CSS styles for the Logo component following the Scalar Design System.
+ * Uses design tokens for colors and sizing.
+ */
+
+.scalar-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scalar-logo--xs {
+  width: 24px;
+  height: 24px;
+}
+
+.scalar-logo--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.scalar-logo--md {
+  width: 42px;
+  height: 42px;
+}
+
+.scalar-logo--lg {
+  width: 56px;
+  height: 56px;
+}
+
+.scalar-logo--xl {
+  width: 72px;
+  height: 72px;
+}
+
+.scalar-logo__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scalar-logo__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+

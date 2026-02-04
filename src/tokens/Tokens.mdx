@@ -1,0 +1,96 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  ColorPrimitivesDisplay,
+  SemanticColorsDisplay,
+  TypographyPrimitivesDisplay,
+  CompositeTypographyDisplay,
+  SpacingTokensDisplay,
+  SizingTokensDisplay,
+} from './TokenDisplay';
+
+<Meta title="Design System/Design Tokens" />
+
+# Design Tokens
+
+This page documents all design tokens available in the Scalar Design System. Design tokens are the foundational values that define the visual language of the design system.
+
+## Color Primitives
+
+Color primitives are the foundational color values organized by color families. These serve as the single source of truth for all colors in the design system.
+
+<ColorPrimitivesDisplay />
+
+---
+
+## Semantic Colors
+
+Semantic colors are context-specific color tokens that map to primitives with mode-dependent values. They adapt based on the theme mode (light or dark).
+
+<SemanticColorsDisplay mode="light" />
+
+<SemanticColorsDisplay mode="dark" />
+
+---
+
+## Typography Primitives
+
+Typography primitives define the foundational typography properties used throughout the design system.
+
+<TypographyPrimitivesDisplay />
+
+---
+
+## Composite Typography
+
+Composite typography combines multiple primitive typography properties into complete typography styles.
+
+### Desktop Large - Heading Styles
+
+<CompositeTypographyDisplay />
+
+---
+
+## Spacing Tokens
+
+Spacing tokens define padding, margins, gaps, and border radius values.
+
+<SpacingTokensDisplay />
+
+---
+
+## Sizing Tokens
+
+Sizing tokens provide a comprehensive scale for spacing, icon sizes, button dimensions, and input field sizes.
+
+<SizingTokensDisplay />
+
+---
+
+## Usage
+
+All tokens can be imported and used in your components:
+
+```typescript
+import {
+  getColorPrimitive,
+  getSemanticColor,
+  typographyPrimitives,
+  spacing,
+  sizing,
+} from '@/tokens';
+
+// Use color primitives
+const brandColor = getColorPrimitive('brand', '500');
+
+// Use semantic colors (mode-aware)
+const textColor = getSemanticColor('text', 'primary', 'light');
+
+// Use typography primitives
+const fontSize = typographyPrimitives.size.m; // 14px
+
+// Use spacing tokens
+const buttonPadding = spacing.button.md; // { horizontal: 16, vertical: 8 }
+
+// Use sizing tokens
+const iconSize = sizing.icon.md; // 24px
+```

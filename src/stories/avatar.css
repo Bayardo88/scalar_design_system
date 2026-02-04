@@ -1,0 +1,107 @@
+/**
+ * Avatar Component Styles
+ * 
+ * CSS styles for the Avatar component following the Scalar Design System.
+ * Uses design tokens for colors, typography, and sizing.
+ * 
+ * Sizes from Figma:
+ * - S: 32x32px, border-radius: 24px, font: 12px/16px
+ * - M: 48x48px, border-radius: 24px, font: 16px/24px
+ * - L: 64x64px, border-radius: 32px, font: 20px/28px
+ */
+
+.scalar-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Size variants - 1:1 aspect ratio */
+.scalar-avatar--sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.scalar-avatar--md {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.scalar-avatar--lg {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  padding: 8px;
+}
+
+/* Initials text */
+.scalar-avatar__initials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 0;
+}
+
+.scalar-avatar__initials p {
+  margin: 0;
+}
+
+/* Size-specific typography */
+.scalar-avatar--sm .scalar-avatar__initials {
+  font-size: 12px;
+}
+
+.scalar-avatar--sm .scalar-avatar__initials p {
+  line-height: 16px;
+}
+
+.scalar-avatar--md .scalar-avatar__initials {
+  font-size: 16px;
+}
+
+.scalar-avatar--md .scalar-avatar__initials p {
+  line-height: 24px;
+}
+
+.scalar-avatar--lg .scalar-avatar__initials {
+  font-size: 20px;
+}
+
+.scalar-avatar--lg .scalar-avatar__initials p {
+  line-height: 28px;
+}
+
+/* Image styles */
+.scalar-avatar__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.scalar-avatar--sm .scalar-avatar__image {
+  border-radius: 24px;
+}
+
+.scalar-avatar--md .scalar-avatar__image {
+  border-radius: 24px;
+}
+
+.scalar-avatar--lg .scalar-avatar__image {
+  border-radius: 32px;
+}
+
