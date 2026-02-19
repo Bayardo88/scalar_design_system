@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { FundsPage } from './pages/FundsPage';
+import TokenDocsPage from './pages/TokenDocsPage';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <FundsPage />
+    <TokenDocsPage />
   </React.StrictMode>
 );

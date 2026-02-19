@@ -30,7 +30,16 @@ type SemanticVar =
   | 'icon-brand'
   | 'icon-hover'
   | 'icon-pressed'
-  | 'icon-disable';
+  | 'icon-disable'
+  | 'icon-positive'
+  | 'icon-positive-hover'
+  | 'icon-positive-pressed'
+  | 'icon-negative'
+  | 'icon-negative-hover'
+  | 'icon-negative-pressed'
+  | 'icon-warning'
+  | 'icon-warning-hover'
+  | 'icon-warning-pressed';
 
 function varOf(name: SemanticVar): string {
   return `var(--${name})`;
