@@ -1,0 +1,128 @@
+/**
+ * Design tokens as CSS variables (from design-tokens.scalar.ai.json).
+ * Required by ai-sources components. Light theme on :root.
+ */
+:root {
+  /* Spacing / sizing (px) */
+  --4: 4px;
+  --8: 8px;
+  --10: 10px;
+  --12: 12px;
+  --14: 14px;
+  --16: 16px;
+  --18: 18px;
+  --20: 20px;
+  --24: 24px;
+  --28: 28px;
+  --32: 32px;
+  --40: 40px;
+  --48: 48px;
+  --64: 64px;
+  --96: 96px;
+  --120: 120px;
+  --128: 128px;
+  --240: 240px;
+
+  /* Typography */
+  --family-inter: Inter, system-ui, sans-serif;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-semi-bold: 600;
+  --weight-bold: 700;
+  --letter-spacing-none: 0;
+
+  /* Primitive colors */
+  --neutral-50: #f8fafc;
+  --neutral-100: #e5e5e5;
+  --neutral-200: #cccccc;
+  --neutral-300: #b3b3b3;
+  --neutral-400: #999999;
+  --neutral-500: #808080;
+  --neutral-600: #666666;
+  --neutral-700: #4c4c4c;
+  --neutral-800: #333333;
+  --neutral-900: #1a1a1a;
+  --neutral-white: #ffffff;
+  --neutral-black: #000000;
+  --brand-100: #cde5fa;
+  --brand-200: #9acbf6;
+  --brand-300: #68b1f1;
+  --brand-400: #3597ed;
+  --brand-500: #037de8;
+  --brand-600: #0268c1;
+  --brand-700: #02539a;
+  --green-400: #00b04f;
+  --green-600: #007e17;
+  --green-700: #006012;
+  --green-800: #00420f;
+  --red-400: #ff2f3d;
+  --red-600: #cb0000;
+  --red-700: #9c0000;
+  --red-800: #6c0003;
+  --yellow-400: #ffbb33;
+  --yellow-600: #cc8800;
+  --yellow-700: #996600;
+  --yellow-800: #664400;
+  --blue-200: #9ea7fa;
+  --blue-700: #071592;
+
+  /* Semantic (light theme) */
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-800);
+  --text-tertiary: var(--neutral-600);
+  --text-button-label: var(--neutral-white);
+  --text-button-disable-label: var(--neutral-600);
+  --text-positive: var(--green-400);
+  --text-positive-hover: var(--green-600);
+  --text-positive-pressed: var(--green-800);
+  --text-negative: var(--red-600);
+  --text-warning: var(--yellow-600);
+  --text-brand: var(--brand-500);
+  --background-brand: var(--brand-500);
+  --background-hover: var(--brand-600);
+  --background-pressed: var(--brand-700);
+  --background-disable: var(--neutral-300);
+  --background-positive: var(--green-400);
+  --background-positive-hover: var(--green-600);
+  --background-positive-pressed: var(--green-800);
+  --background-negative: var(--red-600);
+  --background-negative-hover: var(--red-700);
+  --background-negative-pressed: var(--red-800);
+  --background-warning: var(--yellow-600);
+  --background-warning-hover: var(--yellow-700);
+  --background-warning-pressed: var(--yellow-800);
+  --background-page: var(--neutral-50);
+  --stroke-brand: var(--brand-500);
+  --stroke-hover: var(--brand-600);
+  --stroke-pressed: var(--brand-700);
+  --stroke-disable: var(--neutral-300);
+  --stroke-positive: var(--green-400);
+  --stroke-positive-hover: var(--green-600);
+  --stroke-positive-pressed: var(--green-800);
+  --stroke-negative: var(--red-600);
+  --stroke-warning: var(--yellow-600);
+  --icon-brand: var(--brand-500);
+  --icon-hover: var(--brand-600);
+  --icon-pressed: var(--brand-700);
+  --icon-disable: var(--neutral-300);
+  --icon-positive: var(--green-600);
+  --icon-positive-hover: var(--green-700);
+  --icon-positive-pressed: var(--green-800);
+  --icon-negative: var(--red-600);
+  --icon-negative-hover: var(--red-700);
+  --icon-negative-pressed: var(--red-800);
+  --icon-warning: var(--yellow-600);
+  --icon-warning-hover: var(--yellow-700);
+  --icon-warning-pressed: var(--yellow-800);
+  --overlay-30-inverse: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: var(--family-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
