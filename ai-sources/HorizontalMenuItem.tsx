@@ -99,8 +99,8 @@ export const HorizontalMenuItem: React.FC<HorizontalMenuItemProps> = ({
     border: 'none',
     borderBottom:
       active && activeIndicator === 'underline'
-        ? `2px solid ${varOf('stroke-brand')}`
-        : '2px solid transparent',
+        ? `var(--2) solid ${varOf('stroke-brand')}`
+        : 'var(--2) solid transparent',
     cursor: interactive ? 'pointer' : disabled ? 'not-allowed' : undefined,
     outline: 'none',
     transition: 'color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',

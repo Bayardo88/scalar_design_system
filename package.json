@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "validate:schema": "node scripts/validate-schema.js",
+    "validate:tokens": "node scripts/validate-tokens.js",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +40,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/browser-playwright": "^4.0.16",
     "@vitest/coverage-v8": "^4.0.16",
+    "husky": "^9.1.7",
     "playwright": "^1.57.0",
     "storybook": "^10.1.9",
     "storybook-addon-designs": "^6.3.1",

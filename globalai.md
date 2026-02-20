@@ -319,4 +319,22 @@ The Scalar Design System is:
 
 ---
 
+## 15. SCHEMA LOCK MODE
+
+If a .tsx file is modified, Cursor MUST:
+
+1. Update the corresponding schema file.
+2. Modify both files in the same operation.
+3. Never change implementation without adjusting schema.
+4. Refuse edits that alter:
+   - Variants
+   - States
+   - Token mappings
+   - Props  
+   unless the schema is updated.
+
+**Failure to update schema invalidates the change.**
+
+---
+
 **END OF GLOBAL GOVERNANCE FILE**

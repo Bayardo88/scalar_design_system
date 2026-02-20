@@ -147,7 +147,7 @@ export const AddMetricModal: React.FC<AddMetricModalProps> = ({
           max-height: 80vh;
           display: flex;
           flex-direction: column;
-          box-shadow: 0 4px 24px ${varOf('overlay-50-inverse')};
+          box-shadow: 0 var(--4) var(--24) ${varOf('overlay-50-inverse')};
         }
         .ai-add-metric-modal-list {
           overflow: auto;
