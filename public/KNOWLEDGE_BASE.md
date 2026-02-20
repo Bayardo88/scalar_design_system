@@ -2,6 +2,8 @@
 
 This document serves as a comprehensive knowledge base for all Fund Intelligence Metrics used in the Scalar Design System and related applications.
 
+**Legend:** 🆕 = New / explicitly called out as new in this version · 🥇 = Priority / key metric
+
 ## Table of Contents
 
 1. [Company General Fields](#company-general-fields)
@@ -21,6 +23,168 @@ This document serves as a comprehensive knowledge base for all Fund Intelligence
 15. [Specified Share Value](#specified-share-value)
 16. [Calibration](#calibration)
 17. [Documents & Process Management](#documents--process-management)
+18. [Metrics List (Quick Reference)](#metrics-list-quick-reference)
+19. [Reconciliation with Previous Version](#reconciliation-with-previous-version)
+
+---
+
+## Metrics List (Quick Reference)
+
+Compact list of all metrics. 🆕 = New in this version; 🥇 = Priority/key metric.
+
+### Company General Fields
+
+- Company Name
+- Fund(s)
+- 🆕 Cap Table Currency
+- 🆕 Financials Currency
+- 🆕 Fiscal Year End
+- 🆕 Website
+- 🆕 Legal Company Name
+- **To add in coming features:** Firm's Categorization (tag), Industry, Capital IQ ID, Capital IQ Description, Notice.co/Zanbato some other Private Company ID, More Market Intelligence Data…, Some way to start relating the same port co across firms
+
+### Measurement Date Specific Fields
+
+- Valuation Date (company measurement date)
+- Cap Table
+  - 🆕 Cap Table Version Name
+  - 🆕 Cap Table Currency
+  - 🆕 Total Outstanding Shares (#)
+  - 🆕 Total Fully Diluted Shares (#)
+  - 🆕 Initial Investment Date (📅) first investment date from any preferred security
+  - 🆕 Total number of preferred rounds
+  - 🆕 Most Recent Investment Date (📅) last investment date from any preferred security
+  - 🆕 Total Options (#)
+  - 🆕 Average Option Strike Price ($)
+  - 🆕 Percent Option Pool of total fully diluted shares (%)
+  - 🆕 Total Warrants (#)
+  - 🆕 Average Warrant Strike Price ($)
+  - 🆕 Total Unissued Options (#)
+  - 🆕 Total Common Shares (#)
+  - 🆕 Total Outstanding Preferred Shares (#)
+  - 🆕 Total Fully Diluted Preferred Shares (#)
+  - 🆕 Total Raised
+  - 🆕 Total Initial Liquidation Preference ($)
+  - 🆕 Total Preference (with Dividends) ($) as of the measurement date
+  - 🆕 Initial Note Issuance Date
+  - 🆕 Initial Note Conversion Model (preferred, common, loan)
+  - 🆕 Initial Note Conversion Price/Share ($)
+  - 🆕 Initial Note Expected Shares (#)
+  - 🆕 Total Note Expected Shares (#)
+
+### Fund Ownership
+
+(Can be grouped by fund, company, or individual investment)
+
+- Initial Investment (📅)
+- Most Recent Investment (📅)
+- Fully Diluted Ownership (%)
+- 🆕 Outstanding Ownership (%) 🥇
+- Invested Capital ($)
+- Shares (#)
+- CSE Shares (#)
+- 🆕 Security ID 🥇
+- 🆕 Cash Distributions ($) 🥇
+- 🆕 Proceeds from Shares Sold ($) 🥇
+- 🆕 Loan Value ($) 🥇
+
+### Breakpoint Analysis
+
+- 🆕 Uses Custom Breakpoints (bool)
+- 🆕 Highest Breakpoint Price per Common Share ($)
+- 🆕 Highest Breakpoint limit ($)
+
+### Cash Flows
+
+- Gross IRR (%) xirr(cash_flows)
+- 🆕 Net Cash Flows ($)
+- Total Other Capital Costs ($) — everything manually entered in cash flows page
+
+### Financials (all 🆕)
+
+- Financials Date (date)
+- LTM Date
+- NTM Date
+- Balance Sheet As Of Date
+- LTM or NTM
+- Total Revenue ($), Total Cost of Sales ($), Gross Profit ($), Operating Expenses ($), EBITDA ($), Adjusted EBITDA ($), Depreciation Expense ($), Amortization Expense ($), EBIT ($), Interest Expense ($), Other Expense ($), Pretax Income ($), Income Taxes ($), Net Income ($)
+- Revenue Growth Rate (%), Cost of Sales (%), Gross Margin (%), Operating % of Sales (%), EBITDA Margin (%), Adjusted EBITDA Margin (%), Net Profit Margin (%)
+
+### Balance Sheet As of (all $) - LTM
+
+- Cash and Equivalents, Accounts Receivables, Inventory, Other Current Assets, Total Current Assets
+- PPE, Intangibles, Other Long Term Assets, Total Long Term Assets, Total Assets
+- Short Term Debt, Accounts Payable, Accrued Liabilities, Deferred Revenue, Other Current Liabilities, Total Current Liabilities
+- Long Term Debt, Other Long Term Debt, Total Long Term Debt, Total Liabilities
+- Equity, Total Liabilities and Equity
+- **All other Financial Periods** (historical or projection): all financial values, fiscal period, fiscal period end date
+
+### KPI
+
+For all financial periods, LTM, and NTM: **(metric name) #, % or $**
+
+### Valuation/Allocation
+
+- Valuation Status (draft, published, final)
+- Realized Value ($), Unrealized Value ($), Total Value ($) — unrealized_value + realized_value (Current Fund Value)
+- MOIC (x) — total_value / invested_capital
+- Enterprise Value 🥇, Equity Value 🥇, Breakeven Equity Exit Value 🥇
+- Valuation Methods (BV, PC, GT, etc) 🥇
+- Allocation Methods (CSE, Waterfall, OPM, Backsolve, Future Exit, SSV) 🥇
+- 🆕 Implied EV/LTM Revenue Multiple (x) — enterprise_value / ltm_revenue 🥇
+- 🆕 Implied EV/LTM EBITDA Multiple (x) — enterprise_value / ltm_ebitda 🥇
+- 🆕 Implied EV/NTM Multiple (x) — enterprise_value / ntm_revenue 🥇
+- 🆕 Implied EV/NTM EBITDA Multiple (x) — enterprise_value / ntm_ebitda 🥇
+- 🆕 Implied EV/(KPI Metric) Multiple (x) — enterprise_value / kpi_metric 🥇
+- **Allocation Scenarios:** Scenario type (, )
+
+### GPC (all 🆕)
+
+- Use Multiple Premium Discount (bool), Use Equity Value (bool), Use Calculated Forward Multiple (bool)
+- First Multiple Type (LTM, NTM or period year), Second Multiple Type (LTM, NTM or period year)
+- LTM Revenue Applied Multiple (x), LTM EBITDA Applied Multiple (x), NTM Revenue Applied Multiple (x), NTM EBITDA Applied Multiple (x), Weighted Applied Multiple (x)
+- LTM Revenue Multiple Premium Discount (x), LTM EBITDA Multiple Premium Discount (x), NTM Revenue Multiple Premium Discount (x), NTM EBITDA Multiple Premium Discount (x), Weighted Multiple Premium Discount (x)
+- Weighted Enterprise Value ($), Weighed Equity Value ($)
+- **All tickers:** Percentile Ranking (%), LTM Revenue, LTM Revenue Growth, NTM Revenue, NTM Revenue Growth, LTM EBITDA, NTM EBITDA, Gross Margin, EBITDA Margin, Tangible Book Value, Net Income, Selected 1/2/5 year volatility (median, mean, etc), 1/2/5 year volatility (%)
+
+### Transaction Comps
+
+- LTM Revenue Applied Multiple (x), LTM EBITDA Applied Multiple (x), NTM Revenue Applied Multiple (x), NTM EBITDA Applied Multiple (x), Weighted Applied Multiple (x)
+- Weighted Enterprise Value ($), Weighed Equity Value ($)
+- Percentile Ranking (%), LTM Revenue, LTM Revenue Growth, NTM Revenue, NTM Revenue Growth, LTM EBITDA, NTM EBITDA, Gross Margin, EBITDA Margin
+
+### Backsolve (all 🆕)
+
+- Allocation Methods (CSE, Waterfall, OPM)
+- Security Names (Series A, Series B), Target Total Shares (#), Target Total Value ($)
+- OPM Backsolve Date, OPM Volatility Selected (%), OPM Maturity (#), OPM Maturity Date, OPM Risk Free Rate (%)
+- Implied Equity Value, Enterprise Value
+- Uses Market Adjustment (bool), Market Adjustment As Of Date, Metric Basis for Adjustment (Market Cap, Enterprise Value, etc), Market Adjustment (%), Adjusted Value (Equity Value or Enterprise Value), Adjusted Enterprise Value ($), Adjusted Equity Value ($)
+
+### External Value (all 🆕)
+
+- Equity Value, Enterprise Value
+
+### DCF (all 🆕)
+
+- WACC (%), Effective Tax Rate (%)
+- Summed Present Value of Discrete Period Cash Flows ($), Present Value of Terminal Value ($), Present Value of NOL Carryforwards ($), Enterprise Value ($)
+
+### Specified Share Value (all 🆕)
+
+- Equity Value ($), Enterprise Value ($)
+
+### Calibration (all 🆕)
+
+- LTM Revenue Multiple, NTM Revenue Multiple, LTM Revenue Multiple Percentile, NTM Revenue Multiple Percentile, Multiple Type, LTM Revenue Multiple Premium, NTM Revenue Multiple Premium
+- LTM EBITDA Multiple, NTM EBITDA Multiple, LTM EBITDA Multiple Percentile, NTM EBITDA Multiple Percentile, Multiple Type, LTM EBITDA Multiple Premium, NTM EBITDA Multiple Premium
+
+### Documents & Process Management (all 🆕)
+
+- Total Number of documents (#)
+- Number of documents referenced (#)
+- Number of pending document requests (#)
+- Number of pending questions (#)
 
 ---
 
@@ -473,6 +637,33 @@ Document and process management metrics.
 
 ---
 
+## Reconciliation with Previous Version
+
+This section summarizes how the metrics list above aligns with the previous (narrative) version of this knowledge base.
+
+| Area | Match | Notes |
+|------|--------|------|
+| **Company General Fields** | ✅ | Previous version already had Cap Table Currency, Financials Currency, Fiscal Year End, Website, Legal Company Name; "To add in coming features" list matches (Firm's Categorization, Industry, Capital IQ ID, etc.). |
+| **Measurement Date / Cap Table** | ✅ | All listed fields (Cap Table Version Name, Total Outstanding/Fully Diluted Shares, Initial/Most Recent Investment Date, Options, Warrants, Notes, etc.) were already present in the narrative; 🆕 in the list denotes emphasis for this version. |
+| **Fund Ownership** | ✅ | Outstanding Ownership (%), Security ID, Cash Distributions ($), Proceeds from Shares Sold ($), Loan Value ($) were already in the narrative; marked 🆕/🥇 in the list. |
+| **Breakpoint Analysis** | ✅ | Uses Custom Breakpoints, Highest Breakpoint Price per Common Share, Highest Breakpoint limit — all present. |
+| **Cash Flows** | ✅ | Gross IRR, Net Cash Flows, Total Other Capital Costs — all present. |
+| **Financials** | ✅ | Date fields, Income Statement, Margins, Balance Sheet (LTM), other periods — full set matches. |
+| **KPI** | ✅ | Same convention: (metric name) #, % or $. |
+| **Valuation/Allocation** | ✅ | Status, Realized/Unrealized/Total Value, MOIC, Enterprise Value, Equity Value, Breakeven, Valuation/Allocation Methods match. Implied EV multiples (LTM/NTM Revenue, EBITDA, KPI) and Allocation Scenarios (Scenario type) added explicitly in list. |
+| **GPC** | ✅ | All configuration, applied multiples, premium/discount, values, and ticker metrics (including volatility) match. |
+| **Transaction Comps** | ✅ | Multiples, values, percentile rankings match. |
+| **Backsolve** | ✅ | Allocation Methods, Security Names, Target Shares/Value, OPM parameters, Market Adjustment, Adjusted Values — all match. |
+| **External Value** | ✅ | Equity Value, Enterprise Value — match. |
+| **DCF** | ✅ | WACC, Effective Tax Rate, PV of cash flows/terminal value/NOL, Enterprise Value — match. |
+| **Specified Share Value** | ✅ | Equity Value ($), Enterprise Value ($) — match. |
+| **Calibration** | ✅ | Revenue and EBITDA multiple fields (LTM/NTM, Percentile, Premium) — match. |
+| **Documents & Process Management** | ✅ | Total documents, referenced, pending requests, pending questions — match. |
+
+**Summary:** The metrics list matches the previous version. The 🆕 and 🥇 markers in the quick-reference list highlight new or priority emphasis for this version; the underlying field set is consistent with the narrative sections.
+
+---
+
 ## Usage in Design System
 
 This knowledge base should be referenced when:
@@ -494,5 +685,5 @@ This knowledge base should be referenced when:
 
 ---
 
-*Last Updated: 2025-01-17*
-*Version: 1.0.0*
+*Last Updated: 2025-02-18*
+*Version: 1.1.0*

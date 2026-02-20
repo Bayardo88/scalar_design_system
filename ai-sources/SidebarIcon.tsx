@@ -11,6 +11,14 @@
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
  */
 
+/**
+ * Schema:
+ * /ai-sources/Logic/sidebaricon-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
+ */
+
 import React, { useState } from 'react';
 
 /** Semantic token names from design-tokens.scalar.ai.json */

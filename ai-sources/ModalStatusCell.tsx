@@ -10,6 +10,14 @@
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
  */
 
+/**
+ * Schema:
+ * /ai-sources/Logic/modalstatuscell-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
+ */
+
 import React from 'react';
 import { Chip, type ChipVariant } from './Chip';
 

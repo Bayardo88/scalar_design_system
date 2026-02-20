@@ -4,10 +4,22 @@
  * Source of truth (Figma):
  * https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=70-12104&m=dev
  *
- * Used inside ModalStatusCell and elsewhere. Reusable status/tag pill with optional icon and remove.
+ * Logic (authoritative): ai-sources/Logic/chip-schema-logic.md
+ * - Semantic label (status, category, tag); optional icon and onRemove. Not a CTA or navigation.
+ * - Variants: brand | success | error | warning. Styles: filled | outlined. Sizes: s | m | l.
+ * - Token-only styling; Material Symbols; remove button is <button> with aria-label="Remove".
+ * When using or modifying Chip, follow the logic schema.
  *
  * Rules: public/AI-Rules.md
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
+ */
+
+/**
+ * Schema:
+ * /ai-sources/Logic/chip-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
  */
 
 import React from 'react';

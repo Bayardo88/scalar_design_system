@@ -1,14 +1,25 @@
 /**
- * Content Cell — AI-generated component
+ * ContentCell — AI-generated component
  *
  * Source of truth (Figma):
  * https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=224-3070&m=dev
  *
- * For richer or multi-line cell content (e.g. descriptions). Use with ColumnHeader/DataCell in tables.
- * Optional avatar + name variant uses Avatar at XS size.
+ * Logic (authoritative): ai-sources/Logic/contentcell-schema-logic.md
+ * - Table cell for rich/multi-line content or avatar + name; static, non-interactive.
+ * - Size s|m|l, align left|center|right, variant primary|secondary, bordered, truncate, avatar.
+ * - Avatar mode: Avatar size xs only; token-only styling. Use with ColumnHeader/DataCell.
+ * When using or modifying ContentCell, follow the logic schema.
  *
  * Rules: public/AI-Rules.md
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
+ */
+
+/**
+ * Schema:
+ * /ai-sources/Logic/contentcell-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
  */
 
 import React from 'react';

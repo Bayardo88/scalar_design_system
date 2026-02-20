@@ -1,11 +1,25 @@
 /**
- * Button Icon — AI-generated component
+ * ButtonIcon — AI-generated component
  *
  * Source of truth (Figma):
  * https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=205-709&m=dev
  *
+ * Logic (authoritative): ai-sources/Logic/buttonicon_logic_schema.md
+ * - Controlled dropdown: value + onChange + options; no internal value state.
+ * - Open/close: toggle on trigger click; close on outside click or option selection.
+ * - Variants: brand | positive | negative | warning. Sizes: s | m | l. Styles: filled | outlined | minimal.
+ * - Structure: div (relative) → button (trigger) + ul (listbox when open). Trailing icon: expand_more.
+ *
  * Rules: public/AI-Rules.md
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
+ */
+
+/**
+ * Schema:
+ * /ai-sources/Logic/buttonicon-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
  */
 
 import React, { useState, useRef, useEffect } from 'react';

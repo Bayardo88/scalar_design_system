@@ -4,8 +4,22 @@
  * Source of truth (Figma):
  * https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=73-12236&m=dev
  *
+ * Logic (authoritative): ai-sources/Logic/checkbox-schema-logic.md
+ * - Binary/indeterminate selection only; no semantic variants; sizes s | m.
+ * - States: default, hover, pressed, focus, disabled; selection: unchecked, checked, indeterminate.
+ * - Native <input type="checkbox"> in DOM; Material Symbol "check" | "remove"; token-only styling.
+ * When using or modifying Checkbox, follow the logic schema.
+ *
  * Rules: public/AI-Rules.md
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
+ */
+
+/**
+ * Schema:
+ * /ai-sources/Logic/checkbox-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
  */
 
 import React, { useState, useRef } from 'react';

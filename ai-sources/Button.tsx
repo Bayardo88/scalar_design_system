@@ -4,8 +4,22 @@
  * Source of truth (Figma):
  * https://www.figma.com/design/Z4MtKOfkNEzhMYJzN1q3kR/Scalar_Design_System-Components?node-id=59-21923&m=dev
  *
+ * Logic (authoritative): ai-sources/Logic/button_logic_schema.md
+ * - One action per activation; no internal state or business logic.
+ * - Structure: label (or icon-only with aria-label) + optional leading/trailing icon + optional loading.
+ * - Variants/sizes: predefined enum only; fallback variant=brand (primary), size=m (md).
+ * - Disabled/loading: suppress onClick, aria-disabled / aria-busy; preserve layout.
+ *
  * Rules: public/AI-Rules.md
  * Tokens: design-tokens.scalar.ai.json (semantic tokens only; no hardcoded values)
+ */
+
+/**
+ * Schema:
+ * /ai-sources/Logic/button-schema-logic.md
+ *
+ * This component MUST comply with the Standardized Component Schema.
+ * The schema file is the authoritative contract.
  */
 
 import React from 'react';
@@ -63,10 +77,13 @@ export type ButtonVariant = 'brand' | 'positive' | 'negative' | 'warning';
 export type ButtonSize = 's' | 'm' | 'l';
 
 export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+  /** Label (required unless icon-only with aria-label) — button_logic_schema §2. */
   children: React.ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   disabled?: boolean;
+  /** When true, suppresses interaction and sets aria-busy; preserves width — button_logic_schema §5, §7. */
+  loading?: boolean;
   /** Material Symbol name (AI-Rules: use Material Symbols only). */
   iconLeft?: string;
   iconRight?: string;
@@ -81,11 +98,15 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'brand',
   size = 'm',
   disabled = false,
+  loading = false,
   iconLeft,
   iconRight,
   style,
+  onClick,
   ...props
 }) => {
+  const effectivelyDisabled = disabled || loading;
+
   const semantic = (): {
     bg: SemanticVar;
     bgHover: SemanticVar;
@@ -97,7 +118,7 @@ export const Button: React.FC<ButtonProps> = ({
     iconPressed: SemanticVar;
     iconDisabled: SemanticVar;
   } => {
-    if (disabled) {
+    if (effectivelyDisabled) {
       return {
         bg: 'background-disable',
         bgHover: 'background-disable',
@@ -177,8 +198,8 @@ export const Button: React.FC<ButtonProps> = ({
     borderRadius: radiusVar('m'),
     border: 'none',
     backgroundColor: varOf(s.bg),
-    color: disabled ? varOf(s.textDisabled) : varOf(s.text),
-    cursor: disabled ? 'not-allowed' : 'pointer',
+    color: effectivelyDisabled ? varOf(s.textDisabled) : varOf(s.text),
+    cursor: effectivelyDisabled ? 'not-allowed' : 'pointer',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -186,35 +207,61 @@ export const Button: React.FC<ButtonProps> = ({
     outline: 'none',
     transition: 'background-color 0.2s ease, color 0.2s ease',
     minHeight: size === 's' ? 'var(--24)' : size === 'm' ? 'var(--40)' : 'var(--48)',
+    position: 'relative',
     ...style,
   };
 
-  const className = `ai-button ai-button--${variant} ai-button--${size} ${disabled ? 'ai-button--disabled' : ''}`;
+  const className = `ai-button ai-button--${variant} ai-button--${size} ${effectivelyDisabled ? 'ai-button--disabled' : ''} ${loading ? 'ai-button--loading' : ''}`;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (effectivelyDisabled) return;
+    onClick?.(e);
+  };
 
   return (
     <>
       <style>{`
-        .ai-button:hover:not(:disabled) { background-color: ${varOf(s.bgHover)} !important; color: ${varOf(s.text)} !important; }
-        .ai-button:active:not(:disabled) { background-color: ${varOf(s.bgPressed)} !important; color: ${varOf(s.text)} !important; }
+        .ai-button:hover:not(:disabled):not(.ai-button--loading) { background-color: ${varOf(s.bgHover)} !important; color: ${varOf(s.text)} !important; }
+        .ai-button:active:not(:disabled):not(.ai-button--loading) { background-color: ${varOf(s.bgPressed)} !important; color: ${varOf(s.text)} !important; }
         .ai-button .material-symbols-outlined { color: inherit; font-size: inherit; }
       `}</style>
       <button
         type="button"
         className={className}
-        disabled={disabled}
+        disabled={effectivelyDisabled}
         style={baseStyle}
-        aria-disabled={disabled}
+        aria-disabled={effectivelyDisabled}
+        aria-busy={loading ? true : undefined}
+        onClick={handleClick}
         {...props}
       >
-        {iconLeft && (
-          <span className="material-symbols-outlined" aria-hidden style={{ fontSize: '1em' }}>
-            {iconLeft}
-          </span>
-        )}
-        {children}
-        {iconRight && (
-          <span className="material-symbols-outlined" aria-hidden style={{ fontSize: '1em' }}>
-            {iconRight}
+        <span style={loading ? { visibility: 'hidden' as const } : undefined}>
+          {iconLeft && (
+            <span className="material-symbols-outlined" aria-hidden style={{ fontSize: '1em' }}>
+              {iconLeft}
+            </span>
+          )}
+          {children}
+          {iconRight && (
+            <span className="material-symbols-outlined" aria-hidden style={{ fontSize: '1em' }}>
+              {iconRight}
+            </span>
+          )}
+        </span>
+        {loading && (
+          <span
+            aria-hidden
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: '1em' }}>
+              progress_activity
+            </span>
           </span>
         )}
       </button>
